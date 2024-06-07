@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import dc.human.kimbanbagi.tableJava.dao.*;
 import dc.human.kimbanbagi.tableJava.dto.*;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -32,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		if(role.equals("1")) {
 			// request에 userId 저장
 			request.setAttribute("userId", id);
-			request.getRequestDispatcher("/userMain").forward(request, response);
+			request.getRequestDispatcher("userMain").forward(request, response);
 			
 		} else if(role.equals("2")) {
 			request.setAttribute("userId", id);
@@ -42,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 				String restaurantId = dao.getRid(id);
 				
 				request.setAttribute("restaurantId", restaurantId);
-				request.getRequestDispatcher("/ownerMain").forward(request, response);
+				request.getRequestDispatcher("ownerMain").forward(request, response);
 				
 			}else {
 				request.getRequestDispatcher("register.jsp").forward(request, response);

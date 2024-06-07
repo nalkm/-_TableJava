@@ -53,7 +53,9 @@ public class JoinDAO {
             pstmt.setString(1, id);
             
             ResultSet rs = pstmt.executeQuery();
-            result = rs.next();
+            if(rs.next()) {
+            	result = true;
+            }
             
             conn.close();
             pstmt.close();
